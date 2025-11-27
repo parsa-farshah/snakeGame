@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="w-full">
+      <h2>score: <span id="scoreWrapper">0</span></h2>
       <!-- table -->
       <div
         id="table"
@@ -1087,9 +1088,34 @@
     <!-- snake -->
     <div
       id="snake"
-      class="w-[25px] h-[25px] bg-[#00000073] absolute top-1/2 left-[49.1%] -translate-1/2 flex justify-center items-center"
+      class="w-fit h-fit absolute top-1/2 left-[49.1%] -translate-1/2 flex justify-center items-center duration-200"
     >
-      <div class="w-[70%] h-[70%] bg-black"></div>
+      <div id="snakeHead" class="w-[50px] h-[50px] duration-500">
+        <svg
+          viewBox="0 0 120 120"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full h-full"
+        >
+          <!-- بدنه سر -->
+          <path
+            d="M12,60 C12,60 80,12 108,60 C80,108 12,60 12,60 Z"
+            fill="#1e7a1e"
+            stroke="#0f4c0f"
+            stroke-width="4"
+          />
+          <!-- چشم -->
+          <circle cx="76" cy="48" r="8" fill="#fff" />
+          <circle cx="78" cy="48" r="4" fill="#000" />
+          <!-- زبان -->
+          <path
+            d="M96 68 q12 8 0 16"
+            stroke="#d33"
+            stroke-width="4"
+            fill="none"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
     </div>
   </body>
   <script src="src/js/index.js"></script>
