@@ -3,9 +3,8 @@ let $snake = document.querySelector("#snake");
 let tableRect = $table.getBoundingClientRect();
 let snakeRect = $snake.getBoundingClientRect();
 let interval = null;
-let $head = document.querySelector("#snakeHead");
-let $headRect = $head.getBoundingClientRect();
-
+const $head = document.querySelector("#snake-head");
+// const $headRect = $head.getBoundingClientRect;
 document.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "ArrowUp":
@@ -205,10 +204,10 @@ function checkCollision() {
 
   // lose wall
   if (
-    $headRect.left <= tableRect.left ||
-    $headRect.right >= tableRect.right ||
-    $headRect.top <= tableRect.top ||
-    $headRect.bottom >= tableRect.bottom
+    snakeRect.left <= tableRect.left ||
+    snakeRect.right >= tableRect.right ||
+    snakeRect.top <= tableRect.top ||
+    snakeRect.bottom >= tableRect.bottom
   ) {
     alert("you lose");
   }
