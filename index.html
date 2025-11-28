@@ -8,16 +8,18 @@
   </head>
   <body>
     <div class="w-full">
-      <h2>score: <span id="scoreWrapper">0</span></h2>
+      <h2 class="w-full text-3xl font-black text-center">
+        score: <span id="scoreWrapper" class="text-red-600">0</span>
+      </h2>
       <!-- table -->
       <div
         id="table"
-        class="w-[90%] md:w-[70%] h-[510px] bg-amber-600 overflow-hidden absolute top-1/2 left-[50%] -translate-1/2"
+        class="w-[90%] md:w-[70%] h-[510px] bg-black overflow-hidden absolute top-1/2 left-[50%] -translate-1/2"
       >
         <div
-          class="grid grid-cols-17 lg:grid-cols-40 *:border *:border-[#ffffff59]"
+          class="grid grid-cols-17 lg:grid-cols-40 *:border *:border-[#ffffff17]"
         >
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -73,7 +75,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -129,7 +131,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -185,7 +187,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -241,7 +243,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -297,7 +299,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -353,7 +355,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -409,7 +411,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -465,7 +467,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -521,7 +523,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -577,7 +579,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -633,7 +635,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -689,7 +691,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -745,7 +747,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -801,7 +803,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -857,7 +859,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -913,7 +915,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -969,7 +971,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -1025,7 +1027,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <div class="text-amber-600">1</div>
+          <div class="text-black">1</div>
           <div></div>
           <div></div>
           <div></div>
@@ -1090,31 +1092,104 @@
       id="snake"
       class="w-fit h-fit absolute top-1/2 left-[49.1%] -translate-1/2 flex justify-center items-center duration-200"
     >
-      <div id="snakeHead" class="w-[50px] h-[50px] duration-500">
+      <div id="snakeHead" class="w-[60px] h-[60px] duration-500">
         <svg
-          viewBox="0 0 120 120"
+          viewBox="10 0 120 120"
           xmlns="http://www.w3.org/2000/svg"
           class="w-full h-full"
         >
           <!-- بدنه سر -->
           <path
-            d="M12,60 C12,60 80,12 108,60 C80,108 12,60 12,60 Z"
+            d="M12,60 C12,60 80,12 108,60 C80,108 12,90 12,80 Z"
             fill="#1e7a1e"
             stroke="#0f4c0f"
-            stroke-width="4"
+            stroke-width="2"
           />
-          <!-- چشم -->
+
           <circle cx="76" cy="48" r="8" fill="#fff" />
           <circle cx="78" cy="48" r="4" fill="#000" />
-          <!-- زبان -->
+
           <path
             d="M96 68 q12 8 0 16"
             stroke="#d33"
-            stroke-width="4"
+            stroke-width="10"
             fill="none"
             stroke-linecap="round"
           />
         </svg>
+      </div>
+    </div>
+    <!------------------ keys ------------------->
+    <div
+      class="w-[200px] h-[100px] absolute left-1/2 top-[90%] -translate-1/2 z-40 flex flex-col gap-y-1 justify-center items-center"
+    >
+      <div id="arrowUpClick" class="w-full flex justify-center">
+        <div
+          class="w-[65px] h-[45px] border bg-gray-300 flex justify-center items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill="#000000"
+              d="M3.4 7.4L7 3.8V16h2V3.8l3.5 3.6l1.4-1.5L8 0L2 5.9z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center items-center">
+        <div
+          id="arrowLeftClick"
+          class="w-[65px] h-[45px] border flex justify-center items-center bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill="#000000"
+              d="M7.4 12.5L3.8 9H16V7H3.8l3.6-3.5l-1.5-1.4L0 8l5.9 5.9z"
+            />
+          </svg>
+        </div>
+        <div
+          id="arrowDownClick"
+          class="w-[65px] h-[45px] border flex justify-center items-center bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill="#000000"
+              d="M12.5 8.6L9 12.2V0H7v12.2L3.5 8.6l-1.4 1.5L8 16l5.9-5.9z"
+            />
+          </svg>
+        </div>
+        <div
+          id="arrowRightClick"
+          class="w-[65px] h-[45px] border flex justify-center items-center bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 15 15"
+          >
+            <path
+              fill="#000000"
+              d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414Z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </body>

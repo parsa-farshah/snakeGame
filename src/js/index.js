@@ -4,6 +4,25 @@ let tableRect = $table.getBoundingClientRect();
 let snakeRect = $snake.getBoundingClientRect();
 let interval = null;
 const $head = document.querySelector("#snake-head");
+
+const $arrowUpClick = document.querySelector("#arrowUpClick");
+const $arrowLeftClick = document.querySelector("#arrowLeftClick");
+const $arrowRightClick = document.querySelector("#arrowRightClick");
+const $arrowDownClick = document.querySelector("#arrowDownClick");
+
+$arrowUpClick.addEventListener("click", () => {
+  move("up");
+});
+$arrowDownClick.addEventListener("click", () => {
+  move("down");
+});
+$arrowRightClick.addEventListener("click", () => {
+  move("right");
+});
+$arrowLeftClick.addEventListener("click", () => {
+  move("left");
+});
+
 // const $headRect = $head.getBoundingClientRect;
 document.addEventListener("keydown", (e) => {
   switch (e.key) {
@@ -143,7 +162,7 @@ function rabitMaker() {
 
   let $rabitWrapper = document.createElement("div");
   $rabitWrapper.setAttribute("id", "rabitWrapper");
-  $rabitWrapper.classList.add("absolute", "w-16", "h-16", "border");
+  $rabitWrapper.classList.add("absolute", "w-16", "h-16");
 
   let md = Math.round(tableRect.right) - Math.round(tableRect.left);
   md = md - tableRect.left;
@@ -158,7 +177,7 @@ function rabitMaker() {
   let topRabbit = Math.floor(Math.random() * mdT) + Math.round(tableRect.top);
   $rabitWrapper.style.top = `${topRabbit}px`;
 
-  rabitDiv.innerHTML = `<figure class=" border border-amber-700">
+  rabitDiv.innerHTML = `<figure>
                           <img class="w-full" src="src/images/rabbit.png" alt="" />
                       </figure>`;
 
@@ -187,7 +206,7 @@ function checkCollision() {
     flagScore++;
     $scoreWrapper.innerText = flagScore;
     // add snake
-    $snake.innerHTML += `<div class="w-[25px] h-[25px] tail-segment relative">
+    $snake.innerHTML += `<div class="w-10 h-10 tail-segment relative">
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="absolute w-full h-full">
       <defs>
         <linearGradient id="tailGradient" x1="0" y1="0" x2="8" y2="1">
