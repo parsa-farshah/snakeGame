@@ -3,7 +3,30 @@ let $snake = document.querySelector("#snake");
 let tableRect = $table.getBoundingClientRect();
 let snakeRect = $snake.getBoundingClientRect();
 let interval = null;
-const $head = document.querySelector("#snake-head");
+const $head = document.querySelector("#snakeHead");
+
+let snake = [
+  { x: 0, y: 0 },
+  { x: -1, y: 0 },
+  { x: -2, y: 0 },
+];
+let direction = "right";
+
+function drawSnake() {
+  $snake.innerHTML = "";
+  snake.forEach((seg, i) => {
+    let div = document.createElement("div");
+    div.style.width = "20px";
+    div.style.height = "20px";
+    div.style.position = "absolute";
+    div.style.left = seg.x * 20 + "px";
+    div.style.top = seg.y * 20 + "px";
+    div.style.backgroundColor = i === 0 ? "yellow" : "lightyellow";
+    $snake.appendChild(div);
+  });
+}
+
+drawSnake();
 
 const $arrowUpClick = document.querySelector("#arrowUpClick");
 const $arrowLeftClick = document.querySelector("#arrowLeftClick");
@@ -11,145 +34,53 @@ const $arrowRightClick = document.querySelector("#arrowRightClick");
 const $arrowDownClick = document.querySelector("#arrowDownClick");
 
 $arrowUpClick.addEventListener("click", () => {
-  move("up");
+  direction = "up";
 });
 $arrowDownClick.addEventListener("click", () => {
-  move("down");
+  direction = "down";
 });
 $arrowRightClick.addEventListener("click", () => {
-  move("right");
+  direction = "right";
 });
 $arrowLeftClick.addEventListener("click", () => {
-  move("left");
+  direction = "left";
 });
 
-// const $headRect = $head.getBoundingClientRect;
 document.addEventListener("keydown", (e) => {
-  switch (e.key) {
-    case "ArrowUp":
-      move("up");
-
-      break;
-    case "ArrowRight":
-      move("right");
-      break;
-    case "ArrowLeft":
-      move("left");
-      break;
-    case "ArrowDown":
-      move("down");
-      break;
-
-    default:
-      break;
-  }
+  if (e.key === "ArrowUp" && direction !== "down") direction = "up";
+  if (e.key === "ArrowDown" && direction !== "up") direction = "down";
+  if (e.key === "ArrowLeft" && direction !== "right") direction = "left";
+  if (e.key === "ArrowRight" && direction !== "left") direction = "right";
 });
 
-function tailAnimate() {
-  let segments = $snake.querySelectorAll("div");
-  let tail = segments[segments.length - 1];
-  tail.classList.remove("tail-animate");
-  void tail.offsetWidth; // restart animation
-  tail.classList.add("tail-animate");
+let headElement = $snake.children[0];
+let headElementRect = 0;
+
+function moveSnake() {
+  let head = { ...snake[0] };
+  if (direction === "right") head.x += 1;
+  if (direction === "left") head.x -= 1;
+  if (direction === "up") head.y -= 1;
+  if (direction === "down") head.y += 1;
+
+  snake.unshift(head);
+
+  snake.pop();
+
+  drawSnake();
+
+  headElement = $snake.children[0];
+
+  // update head snake for accident
+  headElementRect = headElement.getBoundingClientRect();
+
+  snakeRect = $snake.getBoundingClientRect();
+
+  /////////////////////// check
+  checkCollision();
 }
 
-function rotateTail(direction) {
-  const tailSegments = $snake.querySelectorAll(".tail-segment");
-  let deg = 0;
-  if (direction === "left") deg = 180;
-  else if (direction === "right") deg = 0;
-  else if (direction === "up") deg = -90;
-  else if (direction === "down") deg = 90;
-
-  tailSegments.forEach((seg) => {
-    seg.style.transform = `rotate(${deg}deg)`;
-  });
-}
-
-function move(s) {
-  if (interval) clearInterval(interval);
-  switch (s) {
-    case "left":
-      // $head.style.transform = "rotate(180deg)";
-      $snake.classList.remove("flex-col");
-      $snake.classList.remove("flex-reverse");
-      $snake.classList.remove("flex-row-reverse");
-      $snake.classList.add("flex-row");
-      interval = setInterval(() => {
-        let leftVal = $snake.computedStyleMap().get("left").value - 1.4;
-        $snake.style.left = leftVal + "%";
-        snakeRect = $snake.getBoundingClientRect();
-        checkCollision();
-      }, 200);
-      snakeHead.classList.remove("rotate-0", "rotate-90", "-rotate-90");
-      snakeHead.classList.add("rotate-180");
-      tailAnimate();
-      rotateTail("left");
-      break;
-
-    case "right":
-      // $head.style.transform = "rotate(0deg)";
-      $snake.classList.remove("flex-col");
-      $snake.classList.remove("flex-col-reverse");
-      $snake.classList.remove("flex-row");
-      $snake.classList.add("flex-row-reverse");
-
-      interval = setInterval(() => {
-        let leftVal = $snake.computedStyleMap().get("left").value + 1.4;
-        $snake.style.left = leftVal + "%";
-        snakeRect = $snake.getBoundingClientRect();
-        checkCollision();
-      }, 200);
-      snakeHead.classList.remove("rotate-180", "rotate-90", "-rotate-90");
-      snakeHead.classList.add("rotate-0");
-
-      tailAnimate();
-      rotateTail("right");
-
-      break;
-
-    case "up":
-      // $head.style.transform = "rotate(-90deg)";
-      $snake.classList.remove("flex-row");
-      $snake.classList.remove("flex-col-reverse");
-      $snake.classList.remove("flex-row-reverse");
-      $snake.classList.add("flex-col");
-
-      interval = setInterval(() => {
-        let topVal = $snake.computedStyleMap().get("top").value - 4;
-        $snake.style.top = topVal + "%";
-        snakeRect = $snake.getBoundingClientRect();
-        checkCollision();
-      }, 200);
-      snakeHead.classList.remove("rotate-0", "rotate-90", "rotate-180");
-      snakeHead.classList.add("-rotate-90");
-      tailAnimate();
-      rotateTail("up");
-
-      break;
-
-    case "down":
-      // $head.style.transform = "rotate(90deg)";
-      $snake.classList.remove("flex-row");
-      $snake.classList.remove("flex-row-reverse");
-      $snake.classList.remove("flex-col");
-      $snake.classList.add("flex-col-reverse");
-      interval = setInterval(() => {
-        let bottomVal = $snake.computedStyleMap().get("top").value + 4;
-        $snake.style.top = bottomVal + "%";
-        snakeRect = $snake.getBoundingClientRect();
-        checkCollision();
-      }, 200);
-      snakeHead.classList.remove("rotate-0", "-rotate-90", "rotate-180");
-      snakeHead.classList.add("rotate-90");
-
-      tailAnimate();
-      rotateTail("down");
-
-    default:
-      break;
-  }
-}
+interval = setInterval(moveSnake, 200);
 
 let $rabitL = 0;
 let $rabitR = 0;
@@ -157,76 +88,68 @@ let $rabitT = 0;
 let $rabitB = 0;
 
 let $rabitDivWrapper = document.querySelector("#rabitDivWrapper");
+
 function rabitMaker() {
+  //////////////////////////// make a div
   let rabitDiv = document.createElement("div");
 
   let $rabitWrapper = document.createElement("div");
   $rabitWrapper.setAttribute("id", "rabitWrapper");
-  $rabitWrapper.classList.add("absolute", "w-16", "h-16");
-
+  $rabitWrapper.classList.add("absolute", "w-fit", "h-fit");
+  //////////////////////////////////////// make a random x
   let md = Math.round(tableRect.right) - Math.round(tableRect.left);
   md = md - tableRect.left;
   md - 64;
   let leftRabbit = Math.floor(Math.random() * md) + Math.round(tableRect.left);
   $rabitWrapper.style.left = `${leftRabbit}px`;
+  //////////////////////////////////////// make a random y
 
-  // top and bottom
   let mdT = Math.round(tableRect.bottom) - Math.round(tableRect.top);
   mdT = mdT - tableRect.top;
   mdT - 64;
   let topRabbit = Math.floor(Math.random() * mdT) + Math.round(tableRect.top);
   $rabitWrapper.style.top = `${topRabbit}px`;
 
-  rabitDiv.innerHTML = `<figure>
-                          <img class="w-full" src="src/images/rabbit.png" alt="" />
-                      </figure>`;
+  rabitDiv.innerHTML = `<div class=" tail-segment relative w-[20px] h-[20px] duration-500 bg-red-600">`;
 
   $rabitWrapper.appendChild(rabitDiv);
   $rabitDivWrapper.appendChild($rabitWrapper);
+  /////////////////////// for check eat snake or not
   $rabitL = $rabitWrapper.getBoundingClientRect().left;
   $rabitR = $rabitWrapper.getBoundingClientRect().right;
   $rabitT = $rabitWrapper.getBoundingClientRect().top;
   $rabitB = $rabitWrapper.getBoundingClientRect().bottom;
 }
+
+////////////////////////////////////////////////////////// first rabbit
 rabitMaker();
 
+/////////////////////////////////////////////////  eat rabbit and wall accident
 let $scoreWrapper = document.querySelector("#scoreWrapper");
 flagScore = 0;
+
 function checkCollision() {
-  // when eat rabbit
   if (
-    snakeRect.left < $rabitR &&
-    snakeRect.right > $rabitL &&
-    snakeRect.top < $rabitB &&
-    snakeRect.bottom > $rabitT
+    headElementRect.left < $rabitR &&
+    headElementRect.right > $rabitL &&
+    headElementRect.top < $rabitB &&
+    headElementRect.bottom > $rabitT
   ) {
     $rabitDivWrapper.innerHTML = "";
     rabitMaker();
-    // add score
     flagScore++;
     $scoreWrapper.innerText = flagScore;
-    // add snake
-    $snake.innerHTML += `<div class="w-10 h-10 tail-segment relative">
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="absolute w-full h-full">
-      <defs>
-        <linearGradient id="tailGradient" x1="0" y1="0" x2="8" y2="1">
-          <stop offset="0%" stop-color="#1e7a1e"/>
-          <stop offset="100%" stop-color="#2fbf2f"/>
-        </linearGradient>
-      </defs>
-      <path d="M0 20 Q10 10 20 20 T40 20" fill="none" stroke="url(#tailGradient)" stroke-width="6" stroke-linecap="round">
-        <animateTransform attributeName="transform" type="translate" values="0 0;2 0;0 0" dur="0.3s" repeatCount="indefinite"/>
-      </path>
-    </svg>
-  </div>`;
+
+    let lastChild = snake[snake.length - 1];
+    let newTail = { x: lastChild.x, y: lastChild.y };
+    snake.push(newTail);
   }
 
-  // lose wall
   if (
-    snakeRect.left <= tableRect.left ||
-    snakeRect.right >= tableRect.right ||
-    snakeRect.top <= tableRect.top ||
-    snakeRect.bottom >= tableRect.bottom
+    headElementRect.left <= tableRect.left ||
+    headElementRect.right >= tableRect.right ||
+    headElementRect.top <= tableRect.top ||
+    headElementRect.bottom >= tableRect.bottom
   ) {
     alert("you lose");
   }
