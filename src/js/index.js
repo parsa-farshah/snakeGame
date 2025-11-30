@@ -155,6 +155,44 @@ function rabitMaker() {
 ////////////////////////////////////////////////////////// first rabbit
 rabitMaker();
 
+/////////////////////////////////////////////////////////// bmob maker
+let $bombL = 0;
+let $bombR = 0;
+let $bombT = 0;
+let $bombB = 0;
+
+let $bombDivWrapper = document.querySelector("#bombDivWrapper");
+function bombMaker() {
+  let bombDiv = document.createElement("div");
+
+  let $bombWrapper = document.createElement("div");
+  $bombWrapper.setAttribute("id", "bombWrapper");
+  $bombWrapper.classList.add("absolute", "w-fit", "h-fit");
+  //////////////////////////////////////// make a random x
+  let md = Math.round(tableRect.right) - Math.round(tableRect.left);
+  md = md - tableRect.left;
+  md - 64;
+  let leftBomb = Math.floor(Math.random() * md) + Math.round(tableRect.left);
+  $bombWrapper.style.left = `${leftBomb}px`;
+  //////////////////////////////////////// make a random y
+
+  let mdT = Math.round(tableRect.bottom) - Math.round(tableRect.top);
+  mdT = mdT - tableRect.top;
+  mdT - 64;
+  let topBomb = Math.floor(Math.random() * mdT) + Math.round(tableRect.top);
+  $bombWrapper.style.top = `${topBomb}px`;
+
+  bombDiv.innerHTML = `<img class="w-10 h-10" src="src/images/bomb.png" alt>`;
+
+  $bombWrapper.appendChild(bombDiv);
+  $bombDivWrapper.appendChild($bombWrapper);
+  /////////////////////// for check eat snake or not
+  $bombL = $bombWrapper.getBoundingClientRect().left;
+  $bombR = $bombWrapper.getBoundingClientRect().right;
+  $bombT = $bombWrapper.getBoundingClientRect().top;
+  $bombB = $bombWrapper.getBoundingClientRect().bottom;
+}
+
 /////////////////////////////////////////////////  eat rabbit and wall accident
 let $scoreWrapper = document.querySelector("#scoreWrapper");
 flagScore = 0;
@@ -167,6 +205,8 @@ function checkCollision() {
     headElementRect.bottom > $rabitT
   ) {
     $rabitDivWrapper.innerHTML = "";
+    $bombDivWrapper.innerHTML = "";
+    bombMaker();
     rabitMaker();
     flagScore++;
     $scoreWrapper.innerText = flagScore;
