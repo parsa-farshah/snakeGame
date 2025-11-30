@@ -3,16 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="src/styles/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="overflow-hidden bg-black">
-    <div class="w-full overflow-hidden">
+  <body class="overflow-hidden bg-black text-white">
+    <!----------------------------------- page game over and play again ----------->
+    <div
+      id="gameOverPage"
+      class="w-full h-full bg-black absolute top-0 left-0 z-50 flex flex-col items-center pt-[10%] gap-y-20 translate-x-full duration-500"
+    >
+      <div class="w-[90%] md:w-[20%] flex justify-between">
+        <h4>Snake</h4>
+        <h5>Score : <span id="gameOverScore"></span></h5>
+      </div>
+      <div class="w-[90%] md:w-[50%] flex flex-col items-center">
+        <span class="animate-pulse text-3xl">Game Over</span>
+        <h2 class="mt-7 hover:animate-bounce cursor-pointer">New Game</h2>
+        <h2 class="mt-2 hover:animate-bounce cursor-pointer">Setting</h2>
+      </div>
+    </div>
+    <!------------------------------- end page game over and play again ------------>
+
+    <div class="w-full overflow-hidden flex">
       <h2
-        class="w-full text-xl md:text-3xl font-black text-white text-center flex justify-center items-center gap-2"
+        class="w-full text-xl md:text-2xl font-black text-white text-center flex justify-center items-center gap-2 mt-1 md:mt-3"
       >
         score : <span id="scoreWrapper" class="text-red-600">0</span>
       </h2>
+      <h3
+        class="w-full text-sm md:text-xl font-black text-white text-center flex justify-center items-center gap-2 mt-1 md:mt-3"
+      >
+        High Score :<span id="highScore">0</span>
+      </h3>
       <!-- table -->
       <div
         id="table"
@@ -1104,13 +1130,14 @@
     >
       <div id="arrowUpClick" class="w-full flex justify-center">
         <div
-          class="w-[65px] h-[45px] border bg-gray-300 flex justify-center items-center"
+          class="w-[45px] h-[45px] md:w-[65px] md:h-[45px] border bg-[#ebebeb93] flex justify-center items-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
             viewBox="0 0 16 16"
+            class="w-5 h-5 md:w-7 md:h-7"
           >
             <path
               fill="#000000"
@@ -1123,13 +1150,14 @@
       <div class="w-full flex justify-center items-center">
         <div
           id="arrowLeftClick"
-          class="w-[65px] h-[45px] border flex justify-center items-center bg-gray-300"
+          class="w-[45px] h-[45px] md:w-[65px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
             viewBox="0 0 16 16"
+            class="w-5 h-5 md:w-7 md:h-7"
           >
             <path
               fill="#000000"
@@ -1139,13 +1167,14 @@
         </div>
         <div
           id="arrowDownClick"
-          class="w-[65px] h-[45px] border flex justify-center items-center bg-gray-300"
+          class="w-[45px] h-[45px] md:w-[65px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
             viewBox="0 0 16 16"
+            class="w-5 h-5 md:w-7 md:h-7"
           >
             <path
               fill="#000000"
@@ -1155,13 +1184,14 @@
         </div>
         <div
           id="arrowRightClick"
-          class="w-[65px] h-[45px] border flex justify-center items-center bg-gray-300"
+          class="w-[45px] h-[45px] md:w-[65px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
             viewBox="0 0 15 15"
+            class="w-5 h-5 md:w-7 md:h-7"
           >
             <path
               fill="#000000"
@@ -1172,5 +1202,6 @@
       </div>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
   <script src="src/js/index.js"></script>
 </html>

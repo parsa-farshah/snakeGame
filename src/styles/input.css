@@ -1,6 +1,10 @@
 @import "tailwindcss";
 /* npx @tailwindcss/cli -i ./src/styles/input.css -o ./src/styles/output.css --watch */
 
+body {
+  font-family: "Sixtyfour", sans-serif;
+}
+
 /* @layer utilities {
   .tail-animate {
     animation: tailSway 0.35s ease-in-out;

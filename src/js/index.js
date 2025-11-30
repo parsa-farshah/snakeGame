@@ -5,6 +5,14 @@ let snakeRect = $snake.getBoundingClientRect();
 let interval = null;
 const $head = document.querySelector("#snakeHead");
 const $bombAnimation = document.querySelector("#bombAnimation");
+const $gameOverPage = document.querySelector("#gameOverPage");
+const $highScore = document.querySelector("#highScore");
+
+let cookieHigh = Cookies.get("HighScore");
+
+if (cookieHigh !== undefined) {
+  $highScore.innerText = cookieHigh;
+}
 
 //////////////////////////////////////////////////////// snake three slice
 let snake = [
@@ -196,9 +204,12 @@ function bombMaker() {
 
 /////////////////////////////////////////////////  eat rabbit and wall accident
 let $scoreWrapper = document.querySelector("#scoreWrapper");
+let $gameOverScore = document.querySelector("#gameOverScore");
 flagScore = 0;
 
 function checkCollision() {
+  // eat rabbit
+
   if (
     headElementRect.left < $rabitR &&
     headElementRect.right > $rabitL &&
@@ -211,6 +222,7 @@ function checkCollision() {
     rabitMaker();
     flagScore++;
     $scoreWrapper.innerText = flagScore;
+    $gameOverScore.innerText = flagScore;
 
     let lastChild = snake[snake.length - 1];
     let newTail = { x: lastChild.x, y: lastChild.y };
@@ -232,7 +244,6 @@ function checkCollision() {
     $bombDivWrapper.classList.add("hidden");
     $bombAnimation.style.left = $bombL + "px";
     $bombAnimation.style.top = $bombT + "px";
-
     // animation for loose mar hidden and show
     $snake.classList.add("hidden");
     setTimeout(() => {
@@ -263,6 +274,12 @@ function checkCollision() {
       $snake.classList.remove("hidden");
       $snake.classList.add("block");
     }, 2100);
+    setTimeout(() => {
+      // page game over
+      $gameOverPage.classList.remove("translate-x-full");
+      $gameOverPage.classList.add("translate-x-0");
+    }, 2500);
+    cookieSet();
   }
 
   /////////////////////////////////////////////////// snake with wall
@@ -304,6 +321,12 @@ function checkCollision() {
       $snake.classList.remove("hidden");
       $snake.classList.add("block");
     }, 2100);
+    setTimeout(() => {
+      // page game over
+      $gameOverPage.classList.remove("translate-x-full");
+      $gameOverPage.classList.add("translate-x-0");
+    }, 2500);
+    cookieSet();
   }
 
   // loose if accident with himself
@@ -345,6 +368,26 @@ function checkCollision() {
         $snake.classList.remove("hidden");
         $snake.classList.add("block");
       }, 2100);
+      setTimeout(() => {
+        // page game over
+        $gameOverPage.classList.remove("translate-x-full");
+        $gameOverPage.classList.add("translate-x-0");
+      }, 2500);
+      cookieSet();
     }
+  }
+}
+
+// cookie set
+
+function cookieSet() {
+  if (cookieHigh == undefined) {
+    $highScore.innerText = flagScore;
+    Cookies.set("HighScore", flagScore);
+  }
+
+  if (flagScore > cookieHigh) {
+    $highScore.innerText = flagScore;
+    Cookies.set("HighScore", flagScore);
   }
 }
