@@ -216,6 +216,47 @@ function checkCollision() {
     snake.push(newTail);
   }
 
+  // accident to bomb
+  if (
+    headElementRect.left < $bombR &&
+    headElementRect.right > $bombL &&
+    headElementRect.top < $bombB &&
+    headElementRect.bottom > $bombT
+  ) {
+    // stop moving
+    clearInterval(interval);
+    // animation for loose mar hidden and show
+    $snake.classList.add("hidden");
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 300);
+    setTimeout(() => {
+      $snake.classList.remove("block");
+      $snake.classList.add("hidden");
+    }, 600);
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 900);
+    setTimeout(() => {
+      $snake.classList.remove("block");
+      $snake.classList.add("hidden");
+    }, 1200);
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 1500);
+    setTimeout(() => {
+      $snake.classList.remove("block");
+      $snake.classList.add("hidden");
+    }, 1800);
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 2100);
+  }
+
   if (
     headElementRect.left <= tableRect.left ||
     headElementRect.right >= tableRect.right ||
@@ -224,6 +265,36 @@ function checkCollision() {
   ) {
     // stop moving
     clearInterval(interval);
+    // animation for loose mar hidden and show
+    $snake.classList.add("hidden");
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 300);
+    setTimeout(() => {
+      $snake.classList.remove("block");
+      $snake.classList.add("hidden");
+    }, 600);
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 900);
+    setTimeout(() => {
+      $snake.classList.remove("block");
+      $snake.classList.add("hidden");
+    }, 1200);
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 1500);
+    setTimeout(() => {
+      $snake.classList.remove("block");
+      $snake.classList.add("hidden");
+    }, 1800);
+    setTimeout(() => {
+      $snake.classList.remove("hidden");
+      $snake.classList.add("block");
+    }, 2100);
   }
 
   // loose if accident with himself
@@ -235,6 +306,36 @@ function checkCollision() {
       headElementRect.bottom > bodyObjT[i]
     ) {
       clearInterval(interval);
+      // animation for loose mar hidden and show
+      $snake.classList.add("hidden");
+      setTimeout(() => {
+        $snake.classList.remove("hidden");
+        $snake.classList.add("block");
+      }, 300);
+      setTimeout(() => {
+        $snake.classList.remove("block");
+        $snake.classList.add("hidden");
+      }, 600);
+      setTimeout(() => {
+        $snake.classList.remove("hidden");
+        $snake.classList.add("block");
+      }, 900);
+      setTimeout(() => {
+        $snake.classList.remove("block");
+        $snake.classList.add("hidden");
+      }, 1200);
+      setTimeout(() => {
+        $snake.classList.remove("hidden");
+        $snake.classList.add("block");
+      }, 1500);
+      setTimeout(() => {
+        $snake.classList.remove("block");
+        $snake.classList.add("hidden");
+      }, 1800);
+      setTimeout(() => {
+        $snake.classList.remove("hidden");
+        $snake.classList.add("block");
+      }, 2100);
     }
   }
 }
