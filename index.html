@@ -6,15 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/styles/output.css" />
   </head>
-  <body class="overflow-hidden">
+  <body class="overflow-hidden bg-black">
     <div class="w-full overflow-hidden">
-      <h2 class="w-full text-xl md:text-3xl font-black text-center">
-        score: <span id="scoreWrapper" class="text-red-600">0</span>
+      <h2
+        class="w-full text-xl md:text-3xl font-black text-white text-center flex justify-center items-center gap-2"
+      >
+        score : <span id="scoreWrapper" class="text-red-600">0</span>
       </h2>
       <!-- table -->
       <div
         id="table"
-        class="w-[90%] md:w-[70%] h-[510px] bg-black overflow-hidden absolute top-1/2 left-[50%] -translate-1/2"
+        class="w-[90%] md:w-[70%] h-[510px] bg-black overflow-hidden absolute top-1/2 left-[50%] -translate-1/2 border border-white"
       >
         <div
           class="grid grid-cols-17 lg:grid-cols-40 *:border *:border-[#ffffff17]"
