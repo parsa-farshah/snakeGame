@@ -6,8 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/styles/output.css" />
   </head>
-  <body>
-    <div class="w-full">
+  <body class="overflow-hidden">
+    <div class="w-full overflow-hidden">
       <h2 class="w-full text-xl md:text-3xl font-black text-center">
         score: <span id="scoreWrapper" class="text-red-600">0</span>
       </h2>
@@ -1090,12 +1090,8 @@
     <!-- snake -->
     <div
       id="snake"
-      class="w-fit h-fit absolute top-1/2 left-[49.1%] -translate-1/2 flex justify-center items-center"
+      class="w-fit h-fit absolute top-1/2 left-[49.1%] -translate-1/2 gap-2"
     >
-      <!-- <div
-        id="snakeHead"
-        class="w-[20px] h-[20px] duration-500 bg-amber-50"
-      ></div> -->
     </div>
     <!------------------ keys ------------------->
     <div

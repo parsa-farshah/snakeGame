@@ -5,11 +5,14 @@ let snakeRect = $snake.getBoundingClientRect();
 let interval = null;
 const $head = document.querySelector("#snakeHead");
 
+//////////////////////////////////////////////////////// snake three slice
 let snake = [
   { x: 0, y: 0 },
   { x: -1, y: 0 },
   { x: -2, y: 0 },
 ];
+
+//////////////////////////////////////////////////////// default direction
 let direction = "right";
 
 function drawSnake() {
@@ -18,9 +21,12 @@ function drawSnake() {
     let div = document.createElement("div");
     div.style.width = "20px";
     div.style.height = "20px";
+    ///////////////////////////// like a gap between sections
+    div.style.border = "1px solid black";
     div.style.position = "absolute";
     div.style.left = seg.x * 20 + "px";
     div.style.top = seg.y * 20 + "px";
+    /////////////////////////// head yellow and body lightyellow
     div.style.backgroundColor = i === 0 ? "yellow" : "lightyellow";
     $snake.appendChild(div);
   });
@@ -55,6 +61,13 @@ document.addEventListener("keydown", (e) => {
 
 let headElement = $snake.children[0];
 let headElementRect = 0;
+let bodyElement = 0;
+
+///////////////////////////////////////////////////////// move snake
+let bodyObjL = [];
+let bodyObjR = [];
+let bodyObjT = [];
+let bodyObjB = [];
 
 function moveSnake() {
   let head = { ...snake[0] };
@@ -63,10 +76,12 @@ function moveSnake() {
   if (direction === "up") head.y -= 1;
   if (direction === "down") head.y += 1;
 
+  //  head first in array
   snake.unshift(head);
 
   snake.pop();
 
+  // draw a new with x and
   drawSnake();
 
   headElement = $snake.children[0];
@@ -74,7 +89,23 @@ function moveSnake() {
   // update head snake for accident
   headElementRect = headElement.getBoundingClientRect();
 
-  snakeRect = $snake.getBoundingClientRect();
+  // get body for check accident himself
+  bodyObjL = [];
+  bodyObjR = [];
+  bodyObjT = [];
+  bodyObjB = [];
+
+  for (let i = 1; i < snake.length; i++) {
+    let bodyElement = $snake.children[i];
+    let elementL = bodyElement.getBoundingClientRect().left;
+    let elementR = bodyElement.getBoundingClientRect().right;
+    let elementT = bodyElement.getBoundingClientRect().top;
+    let elementB = bodyElement.getBoundingClientRect().bottom;
+    bodyObjL.push(elementL);
+    bodyObjR.push(elementR);
+    bodyObjT.push(elementT);
+    bodyObjB.push(elementB);
+  }
 
   /////////////////////// check
   checkCollision();
@@ -151,6 +182,19 @@ function checkCollision() {
     headElementRect.top <= tableRect.top ||
     headElementRect.bottom >= tableRect.bottom
   ) {
-    alert("you lose");
+    // stop moving
+    clearInterval(interval);
+  }
+
+  // loose if accident with himself
+  for (let i = 0; i < bodyObjT.length; i++) {
+    if (
+      headElementRect.left < bodyObjR[i] &&
+      headElementRect.right > bodyObjL[i] &&
+      headElementRect.top < bodyObjB[i] &&
+      headElementRect.bottom > bodyObjT[i]
+    ) {
+      clearInterval(interval);
+    }
   }
 }
