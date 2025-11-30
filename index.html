@@ -22,8 +22,17 @@
       </div>
       <div class="w-[90%] md:w-[50%] flex flex-col items-center">
         <span class="animate-pulse text-3xl">Game Over</span>
-        <h2 class="mt-7 hover:animate-bounce cursor-pointer">New Game</h2>
-        <h2 class="mt-2 hover:animate-bounce cursor-pointer">Setting</h2>
+        <h2 id="newGameBtn" class="mt-7 hover:animate-bounce cursor-pointer">
+          New Game
+        </h2>
+        <h2 id="settingBtn" class="mt-2 hover:animate-bounce cursor-pointer">
+          Setting
+        </h2>
+        <h4 id="speedSnake" class="hidden">
+          speed : <span id="slow" class="bg-[#4444449d] p-2">slow</span>
+          <span id="normal" class="p-2">normal</span>
+          <span id="fast" class="p-2">fast</span>
+        </h4>
       </div>
     </div>
     <!------------------------------- end page game over and play again ------------>

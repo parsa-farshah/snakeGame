@@ -7,11 +7,48 @@ const $head = document.querySelector("#snakeHead");
 const $bombAnimation = document.querySelector("#bombAnimation");
 const $gameOverPage = document.querySelector("#gameOverPage");
 const $highScore = document.querySelector("#highScore");
+const $newGameBtn = document.querySelector("#newGameBtn");
+const $settingBtn = document.querySelector("#settingBtn");
+const $speedSnake = document.querySelector("#speedSnake");
+let $clickSpeed = document.querySelectorAll("#speedSnake > span");
+let $slow = document.querySelector("#slow");
+let $normal = document.querySelector("#normal");
+let $fast = document.querySelector("#fast");
 
 let cookieHigh = Cookies.get("HighScore");
 
 if (cookieHigh !== undefined) {
   $highScore.innerText = cookieHigh;
+}
+
+// speed snake
+let speedSnake = Cookies.get("speedSnake");
+if (speedSnake == undefined) {
+  speedSnake = 200;
+}
+
+if (speedSnake == "slow") {
+  $clickSpeed.forEach((val) => {
+    val.classList.remove("bg-[#4444449d]");
+  });
+  $slow.classList.add("bg-[#4444449d]");
+  speedSnake = 200;
+}
+
+if (speedSnake == "normal") {
+  $clickSpeed.forEach((val) => {
+    val.classList.remove("bg-[#4444449d]");
+  });
+  $normal.classList.add("bg-[#4444449d]");
+  speedSnake = 150;
+}
+
+if (speedSnake == "fast") {
+  $clickSpeed.forEach((val) => {
+    val.classList.remove("bg-[#4444449d]");
+  });
+  $fast.classList.add("bg-[#4444449d]");
+  speedSnake = 80;
 }
 
 //////////////////////////////////////////////////////// snake three slice
@@ -120,7 +157,7 @@ function moveSnake() {
   checkCollision();
 }
 
-interval = setInterval(moveSnake, 200);
+interval = setInterval(moveSnake, speedSnake);
 
 let $rabitL = 0;
 let $rabitR = 0;
@@ -391,3 +428,38 @@ function cookieSet() {
     Cookies.set("HighScore", flagScore);
   }
 }
+
+// new game
+$newGameBtn.addEventListener("click", () => {
+  location.reload();
+});
+
+// setting btn
+$settingBtn.addEventListener("click", () => {
+  $settingBtn.classList.add("hidden");
+  $speedSnake.classList.remove("hidden");
+});
+
+$slow.addEventListener("click", () => {
+  $clickSpeed.forEach((val) => {
+    val.classList.remove("bg-[#4444449d]");
+  });
+  $slow.classList.add("bg-[#4444449d]");
+  Cookies.set("speedSnake", "slow");
+});
+
+$normal.addEventListener("click", () => {
+  $clickSpeed.forEach((val) => {
+    val.classList.remove("bg-[#4444449d]");
+  });
+  $normal.classList.add("bg-[#4444449d]");
+  Cookies.set("speedSnake", "normal");
+});
+
+$fast.addEventListener("click", () => {
+  $clickSpeed.forEach((val) => {
+    val.classList.remove("bg-[#4444449d]");
+  });
+  $fast.classList.add("bg-[#4444449d]");
+  Cookies.set("speedSnake", "fast");
+});

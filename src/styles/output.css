@@ -408,6 +408,12 @@
   .border-white {
     border-color: var(--color-white);
   }
+  .bg-\[\#444\] {
+    background-color: #444;
+  }
+  .bg-\[\#4444449d\] {
+    background-color: #4444449d;
+  }
   .bg-\[\#ebebeb52\] {
     background-color: #ebebeb52;
   }
@@ -425,6 +431,15 @@
   }
   .bg-red-600 {
     background-color: var(--color-red-600);
+  }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
   }
   .pt-\[10\%\] {
     padding-top: 10%;
