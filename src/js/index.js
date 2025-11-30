@@ -4,6 +4,7 @@ let tableRect = $table.getBoundingClientRect();
 let snakeRect = $snake.getBoundingClientRect();
 let interval = null;
 const $head = document.querySelector("#snakeHead");
+const $bombAnimation = document.querySelector("#bombAnimation");
 
 //////////////////////////////////////////////////////// snake three slice
 let snake = [
@@ -225,6 +226,13 @@ function checkCollision() {
   ) {
     // stop moving
     clearInterval(interval);
+
+    // bomb animation
+    $bombAnimation.classList.remove("hidden");
+    $bombDivWrapper.classList.add("hidden");
+    $bombAnimation.style.left = $bombL + "px";
+    $bombAnimation.style.top = $bombT + "px";
+
     // animation for loose mar hidden and show
     $snake.classList.add("hidden");
     setTimeout(() => {
@@ -257,6 +265,7 @@ function checkCollision() {
     }, 2100);
   }
 
+  /////////////////////////////////////////////////// snake with wall
   if (
     headElementRect.left <= tableRect.left ||
     headElementRect.right >= tableRect.right ||
