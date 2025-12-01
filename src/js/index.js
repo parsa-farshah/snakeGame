@@ -80,7 +80,7 @@ function drawSnake() {
     div.style.left = seg.x * 20 + "px";
     div.style.top = seg.y * 20 + "px";
     /////////////////////////// head yellow and body lightyellow
-    div.style.backgroundColor = i === 0 ? "yellow" : "lightyellow";
+    div.style.backgroundColor = i === 0 ? "#80FF00" : "#138808";
     $snake.appendChild(div);
   });
 }
