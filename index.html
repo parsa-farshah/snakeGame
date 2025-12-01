@@ -9,8 +9,29 @@
       href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="src/images/favicon.png"
+      type="image/x-icon"
+    />
   </head>
   <body class="overflow-hidden bg-black text-white">
+    <!-- sound effect game over -->
+    <audio id="gameOver" src="src/sound effect/gameOver.mp3"></audio>
+    <!-- end sound effect game over -->
+
+    <!-- sound effect collect ring -->
+    <audio id="collectRing" src="src/sound effect/collect.mp3"></audio>
+    <!-- end sound effect collect ring -->
+
+    <!-- sound effect bomb -->
+    <audio id="bombSoundEffect" src="src/sound effect/bomb.mp3"></audio>
+    <!-- end sound effect bomb -->
+
+    <!-- sound effect click -->
+    <audio id="clickSound" src="src/sound effect/click.mp3"></audio>
+    <!-- end sound effect click -->
+
     <!----------------------------------- page game over and play again ----------->
     <div
       id="gameOverPage"
@@ -18,7 +39,7 @@
     >
       <div class="w-[90%] md:w-[20%] flex justify-between">
         <h4>Snake</h4>
-        <h5>Score : <span id="gameOverScore"></span></h5>
+        <h5>Score : <span id="gameOverScore">0</span></h5>
       </div>
       <div class="w-[90%] md:w-[50%] flex flex-col items-center">
         <span class="animate-pulse text-3xl">Game Over</span>

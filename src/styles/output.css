@@ -197,21 +197,6 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
-  .top-3 {
-    top: calc(var(--spacing) * 3);
-  }
-  .top-6 {
-    top: calc(var(--spacing) * 6);
-  }
-  .top-7 {
-    top: calc(var(--spacing) * 7);
-  }
-  .top-8 {
-    top: calc(var(--spacing) * 8);
-  }
-  .top-10 {
-    top: calc(var(--spacing) * 10);
-  }
   .top-\[90\%\] {
     top: 90%;
   }
@@ -241,12 +226,6 @@
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
-  }
-  .mt-3 {
-    margin-top: calc(var(--spacing) * 3);
-  }
-  .mt-4 {
-    margin-top: calc(var(--spacing) * 4);
   }
   .mt-7 {
     margin-top: calc(var(--spacing) * 7);
@@ -296,26 +275,11 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-50 {
-    width: calc(var(--spacing) * 50);
-  }
   .w-\[20px\] {
     width: 20px;
   }
-  .w-\[45pc\] {
-    width: 45pc;
-  }
   .w-\[45px\] {
     width: 45px;
-  }
-  .w-\[50\%\] {
-    width: 50%;
-  }
-  .w-\[65px\] {
-    width: 65px;
-  }
-  .w-\[70\%\] {
-    width: 70%;
   }
   .w-\[90\%\] {
     width: 90%;
@@ -353,17 +317,8 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
-  .animate-bounce {
-    animation: var(--animate-bounce);
-  }
-  .animate-ping {
-    animation: var(--animate-ping);
-  }
   .animate-pulse {
     animation: var(--animate-pulse);
-  }
-  .animate-spin {
-    animation: var(--animate-spin);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -395,9 +350,6 @@
   .gap-y-20 {
     row-gap: calc(var(--spacing) * 20);
   }
-  .gap-y-40 {
-    row-gap: calc(var(--spacing) * 40);
-  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -408,44 +360,23 @@
   .border-white {
     border-color: var(--color-white);
   }
-  .bg-\[\#444\] {
-    background-color: #444;
-  }
   .bg-\[\#4444449d\] {
     background-color: #4444449d;
-  }
-  .bg-\[\#ebebeb52\] {
-    background-color: #ebebeb52;
   }
   .bg-\[\#ebebeb93\] {
     background-color: #ebebeb93;
   }
-  .bg-\[\#fff\] {
-    background-color: #fff;
-  }
   .bg-black {
     background-color: var(--color-black);
-  }
-  .bg-gray-300 {
-    background-color: var(--color-gray-300);
   }
   .bg-red-600 {
     background-color: var(--color-red-600);
   }
-  .p-1 {
-    padding: calc(var(--spacing) * 1);
-  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
-  }
   .pt-\[10\%\] {
     padding-top: 10%;
-  }
-  .pt-\[20\%\] {
-    padding-top: 20%;
   }
   .text-center {
     text-align: center;
@@ -453,14 +384,6 @@
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -485,6 +408,10 @@
   }
   .underline {
     text-decoration-line: underline;
+  }
+  .ring {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .outline {
     outline-style: var(--tw-outline-style);
@@ -512,13 +439,6 @@
       }
     }
   }
-  .hover\:animate-pulse {
-    &:hover {
-      @media (hover: hover) {
-        animation: var(--animate-pulse);
-      }
-    }
-  }
   .md\:mt-3 {
     @media (width >= 48rem) {
       margin-top: calc(var(--spacing) * 3);
@@ -527,16 +447,6 @@
   .md\:h-7 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 7);
-    }
-  }
-  .md\:h-8 {
-    @media (width >= 48rem) {
-      height: calc(var(--spacing) * 8);
-    }
-  }
-  .md\:h-10 {
-    @media (width >= 48rem) {
-      height: calc(var(--spacing) * 10);
     }
   }
   .md\:h-\[45px\] {
@@ -549,29 +459,9 @@
       width: calc(var(--spacing) * 7);
     }
   }
-  .md\:w-8 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 8);
-    }
-  }
-  .md\:w-10 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 10);
-    }
-  }
   .md\:w-\[20\%\] {
     @media (width >= 48rem) {
       width: 20%;
-    }
-  }
-  .md\:w-\[30\%\] {
-    @media (width >= 48rem) {
-      width: 30%;
-    }
-  }
-  .md\:w-\[40\%\] {
-    @media (width >= 48rem) {
-      width: 40%;
     }
   }
   .md\:w-\[50\%\] {
@@ -593,12 +483,6 @@
     @media (width >= 48rem) {
       font-size: var(--text-2xl);
       line-height: var(--tw-leading, var(--text-2xl--line-height));
-    }
-  }
-  .md\:text-3xl {
-    @media (width >= 48rem) {
-      font-size: var(--text-3xl);
-      line-height: var(--tw-leading, var(--text-3xl--line-height));
     }
   }
   .md\:text-xl {
@@ -660,6 +544,71 @@ body {
   syntax: "*";
   inherits: false;
 }
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
 @property --tw-outline-style {
   syntax: "*";
   inherits: false;
@@ -708,6 +657,20 @@ body {
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
       --tw-duration: initial;
     }

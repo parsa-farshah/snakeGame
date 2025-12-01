@@ -14,6 +14,10 @@ let $clickSpeed = document.querySelectorAll("#speedSnake > span");
 let $slow = document.querySelector("#slow");
 let $normal = document.querySelector("#normal");
 let $fast = document.querySelector("#fast");
+let $gameOver = document.querySelector("#gameOver");
+let $collectRing = document.querySelector("#collectRing");
+let $bombSoundEffect = document.querySelector("#bombSoundEffect");
+let $clickSound = document.querySelector("#clickSound");
 
 let cookieHigh = Cookies.get("HighScore");
 
@@ -245,7 +249,7 @@ let $gameOverScore = document.querySelector("#gameOverScore");
 flagScore = 0;
 
 function checkCollision() {
-  // eat rabbit
+  /////////////////////////////////////////// eat rabbit
 
   if (
     headElementRect.left < $rabitR &&
@@ -253,6 +257,7 @@ function checkCollision() {
     headElementRect.top < $rabitB &&
     headElementRect.bottom > $rabitT
   ) {
+    $collectRing.play();
     $rabitDivWrapper.innerHTML = "";
     $bombDivWrapper.innerHTML = "";
     bombMaker();
@@ -266,7 +271,7 @@ function checkCollision() {
     snake.push(newTail);
   }
 
-  // accident to bomb
+  ////////////////////////////////////////////// accident to bomb
   if (
     headElementRect.left < $bombR &&
     headElementRect.right > $bombL &&
@@ -275,6 +280,10 @@ function checkCollision() {
   ) {
     // stop moving
     clearInterval(interval);
+    $bombSoundEffect.play();
+    setTimeout(() => {
+      $gameOver.play();
+    }, 500);
 
     // bomb animation
     $bombAnimation.classList.remove("hidden");
@@ -329,6 +338,7 @@ function checkCollision() {
     // stop moving
     clearInterval(interval);
     // animation for loose mar hidden and show
+    $gameOver.play();
     $snake.classList.add("hidden");
     setTimeout(() => {
       $snake.classList.remove("hidden");
@@ -376,6 +386,7 @@ function checkCollision() {
     ) {
       clearInterval(interval);
       // animation for loose mar hidden and show
+      $gameOver.play();
       $snake.classList.add("hidden");
       setTimeout(() => {
         $snake.classList.remove("hidden");
@@ -437,6 +448,7 @@ $newGameBtn.addEventListener("click", () => {
 // setting btn
 $settingBtn.addEventListener("click", () => {
   $settingBtn.classList.add("hidden");
+  $clickSound.play();
   $speedSnake.classList.remove("hidden");
 });
 
@@ -444,6 +456,7 @@ $slow.addEventListener("click", () => {
   $clickSpeed.forEach((val) => {
     val.classList.remove("bg-[#4444449d]");
   });
+  $clickSound.play();
   $slow.classList.add("bg-[#4444449d]");
   Cookies.set("speedSnake", "slow");
 });
@@ -452,6 +465,7 @@ $normal.addEventListener("click", () => {
   $clickSpeed.forEach((val) => {
     val.classList.remove("bg-[#4444449d]");
   });
+  $clickSound.play();
   $normal.classList.add("bg-[#4444449d]");
   Cookies.set("speedSnake", "normal");
 });
@@ -460,6 +474,7 @@ $fast.addEventListener("click", () => {
   $clickSpeed.forEach((val) => {
     val.classList.remove("bg-[#4444449d]");
   });
+  $clickSound.play();
   $fast.classList.add("bg-[#4444449d]");
   Cookies.set("speedSnake", "fast");
 });
