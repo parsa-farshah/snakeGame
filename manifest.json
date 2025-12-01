@@ -8,13 +8,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "src/images/512snake.png",
+      "src": "src/images/512snake2.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     },
     {
-      "src": "src/images/144snake.png",
+      "src": "src/images/144snake2.png",
       "sizes": "144x144",
       "type": "image/png"
     }
