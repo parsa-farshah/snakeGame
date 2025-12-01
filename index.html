@@ -14,10 +14,12 @@
       href="src/images/512snake2.png"
       type="image/x-icon"
     />
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json" />
   </head>
   <body class="w-full h-[100vh] overflow-hidden bg-black text-white">
-    <section class="w-full h-full overflow-hidden relative">
+    <section
+      class="w-full h-full overflow-hidden relative 2xl:container 2xl:mx-auto"
+    >
       <!-- sound effect game over -->
       <audio id="gameOver" src="src/sound effect/gameOver.mp3"></audio>
       <!-- end sound effect game over -->
@@ -60,15 +62,107 @@
       </div>
       <!------------------------------- end page game over and play again ------------>
 
+      <!------------------------------- my socials --------------------------->
+      <div
+        id="social"
+        class="w-full h-full bg-black flex justify-center absolute z-50 translate-x-full duration-500"
+      >
+        <div
+          id="closeBtn"
+          class="absolute left-10 top-10 cursor-pointer hover:rotate-180 duration-500"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            class="w-5 h-5 md:w-10 md:h-10"
+          >
+            <path
+              fill="#ffffff"
+              d="M15.1 3.1L12.9.9L8 5.9L3.1.9L.9 3.1l5 4.9l-5 4.9l2.2 2.2l4.9-5l4.9 5l2.2-2.2l-5-4.9z"
+            />
+          </svg>
+        </div>
+        <div
+          class="w-[300px] h-fit border border-[#8d8d8d57] rounded-4xl mt-[10%]"
+        >
+          <figure class="w-full h-[300px]">
+            <img
+              class="w-full h-full object-contain"
+              src="src/images/parsafresh.png"
+              alt=""
+            />
+          </figure>
+          <h2 class="text-xs text-center mt-3">Front-End Developer</h2>
+          <h2 class="text-[10px] text-center mt-3 text-[#c5c5c5ad]">
+            Parsa Dehghan Pour
+          </h2>
+          <!-- Social Links -->
+          <ul class="flex justify-around py-4">
+            <li>
+              <a href="http://github.com/parsa-farshah" target="_blank">
+                <img
+                  class="w-[45px] h-[45px] hover:scale-125 transition-all duration-500"
+                  src="src/icons/github2.png"
+                  alt="GitHub"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/parsa_dehghanpour_dv"
+                target="_blank"
+              >
+                <img
+                  class="w-[45px] h-[45px] hover:scale-125 transition-all duration-500"
+                  src="src/icons/instagram.png"
+                  alt="Instagram"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://linkedin.com/in/parsa-dehghan-pour-farashah-85ab04250"
+                target="_blank"
+              >
+                <img
+                  class="w-[45px] h-[45px] hover:scale-125 transition-all duration-500"
+                  src="src/icons/linkedin.png"
+                  alt="LinkedIn"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--------------------------------- end my socials ------------------------>
+
       <div class="w-full h-full overflow-hidden flex">
-        <div class="w-full absolute left-0 flex z-30">
+        <div
+          class="w-full absolute left-0 flex justify-between items-center z-30 px-6"
+        >
           <h2
-            class="w-full text-[12px] md:text-2xl mt-5 md:mt-3 font-black text-white text-center flex justify-center items-center gap-2  "
+            class="text-[8px] md:text-2xl font-black text-white text-center flex items-center gap-2"
           >
             score : <span id="scoreWrapper" class="text-red-600">0</span>
           </h2>
+          <div
+            id="socialBtn"
+            class="flex flex-col md:flex-row-reverse items-center cursor-pointer"
+          >
+            <div
+              class="w-10 h-8 md:w-16 md:h-12 border overflow-hidden rounded-full mt-2 cursor-pointer"
+            >
+              <img
+                class="w-full h-full object-cover"
+                src="src/images/parsafresh.png"
+                alt=""
+              />
+            </div>
+            <h3 class="text-[8px] md:text-[12px] w-full">parsa dehghan</h3>
+          </div>
+
           <h3
-            class="w-full text-[10px] md:text-xl font-black text-white text-center flex justify-center items-center gap-2 mt-5 md:mt-3"
+            class="text-[6px] md:text-xl font-black text-white flex items-center gap-2"
           >
             High Score :<span id="highScore">0</span>
           </h3>

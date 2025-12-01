@@ -18,6 +18,9 @@ let $gameOver = document.querySelector("#gameOver");
 let $collectRing = document.querySelector("#collectRing");
 let $bombSoundEffect = document.querySelector("#bombSoundEffect");
 let $clickSound = document.querySelector("#clickSound");
+let $socialBtn = document.querySelector("#socialBtn");
+let $social = document.querySelector("#social");
+let $closeBtn = document.querySelector("#closeBtn");
 
 let cookieHigh = Cookies.get("HighScore");
 
@@ -506,3 +509,14 @@ if ("serviceWorker" in navigator) {
       console.log("service worker not registred !!", err);
     });
 }
+
+///////////////////////////////////////////////////// social btn
+$socialBtn.addEventListener("click", () => {
+  $social.classList.remove("translate-x-full");
+  $social.classList.add("translate-x-0");
+});
+
+$closeBtn.addEventListener("click", () => {
+  $social.classList.remove("translate-x-0");
+  $social.classList.add("translate-x-full");
+});
