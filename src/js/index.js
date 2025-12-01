@@ -254,7 +254,7 @@ function bombMaker() {
 /////////////////////////////////////////////////  eat rabbit and wall accident
 let $scoreWrapper = document.querySelector("#scoreWrapper");
 let $gameOverScore = document.querySelector("#gameOverScore");
-flagScore = 0;
+let flagScore = 0;
 
 function checkCollision() {
   /////////////////////////////////////////// eat rabbit
@@ -268,6 +268,12 @@ function checkCollision() {
     $collectRing.play();
     $rabitDivWrapper.innerHTML = "";
     $bombDivWrapper.innerHTML = "";
+    if (flagScore >= 10) {
+      bombMaker();
+    }
+    if (flagScore >= 20) {
+      bombMaker();
+    }
     bombMaker();
     rabitMaker();
     flagScore++;
@@ -277,6 +283,8 @@ function checkCollision() {
     let lastChild = snake[snake.length - 1];
     let newTail = { x: lastChild.x, y: lastChild.y };
     snake.push(newTail);
+    if (flagScore) {
+    }
   }
 
   ////////////////////////////////////////////// accident to bomb
