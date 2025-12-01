@@ -197,6 +197,12 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
+  .top-\[80\%\] {
+    top: 80%;
+  }
+  .top-\[85\%\] {
+    top: 85%;
+  }
   .top-\[90\%\] {
     top: 90%;
   }
@@ -226,6 +232,12 @@
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
   }
   .mt-7 {
     margin-top: calc(var(--spacing) * 7);
@@ -393,9 +405,18 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+  .text-\[12px\] {
+    font-size: 12px;
+  }
   .font-black {
     --tw-font-weight: var(--font-weight-black);
     font-weight: var(--font-weight-black);
+  }
+  .text-\[10\] {
+    color: 10;
   }
   .text-black {
     color: var(--color-black);
@@ -437,6 +458,16 @@
       @media (hover: hover) {
         animation: var(--animate-bounce);
       }
+    }
+  }
+  .md\:top-\[90\%\] {
+    @media (width >= 48rem) {
+      top: 90%;
+    }
+  }
+  .md\:mt-1 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 1);
     }
   }
   .md\:mt-3 {
@@ -483,6 +514,12 @@
     @media (width >= 48rem) {
       font-size: var(--text-2xl);
       line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+  }
+  .md\:text-lg {
+    @media (width >= 48rem) {
+      font-size: var(--text-lg);
+      line-height: var(--tw-leading, var(--text-lg--line-height));
     }
   }
   .md\:text-xl {
