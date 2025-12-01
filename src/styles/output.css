@@ -8,7 +8,6 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-600: oklch(57.7% 0.245 27.325);
-    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -22,11 +21,7 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-black: 900;
-    --animate-spin: spin 1s linear infinite;
-    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --animate-bounce: bounce 1s infinite;
     --default-font-family: var(--font-sans);
@@ -197,14 +192,8 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
-  .top-\[80\%\] {
-    top: 80%;
-  }
   .top-\[85\%\] {
     top: 85%;
-  }
-  .top-\[90\%\] {
-    top: 90%;
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
@@ -226,9 +215,6 @@
   }
   .z-50 {
     z-index: 50;
-  }
-  .mt-1 {
-    margin-top: calc(var(--spacing) * 1);
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
@@ -272,8 +258,14 @@
   .h-\[100px\] {
     height: 100px;
   }
+  .h-\[100vh\] {
+    height: 100vh;
+  }
   .h-\[510px\] {
     height: 510px;
+  }
+  .h-dvh {
+    height: 100dvh;
   }
   .h-fit {
     height: fit-content;
@@ -397,14 +389,6 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
-  }
-  .text-xl {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
-  }
   .text-\[10px\] {
     font-size: 10px;
   }
@@ -414,9 +398,6 @@
   .font-black {
     --tw-font-weight: var(--font-weight-black);
     font-weight: var(--font-weight-black);
-  }
-  .text-\[10\] {
-    color: 10;
   }
   .text-black {
     color: var(--color-black);
@@ -463,11 +444,6 @@
   .md\:top-\[90\%\] {
     @media (width >= 48rem) {
       top: 90%;
-    }
-  }
-  .md\:mt-1 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 1);
     }
   }
   .md\:mt-3 {
@@ -654,17 +630,6 @@ body {
 @property --tw-duration {
   syntax: "*";
   inherits: false;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
 }
 @keyframes pulse {
   50% {
