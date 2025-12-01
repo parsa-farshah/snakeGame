@@ -90,16 +90,24 @@ const $arrowRightClick = document.querySelector("#arrowRightClick");
 const $arrowDownClick = document.querySelector("#arrowDownClick");
 
 $arrowUpClick.addEventListener("click", () => {
-  direction = "up";
+  if (direction !== "down") {
+    direction = "up";
+  }
 });
 $arrowDownClick.addEventListener("click", () => {
-  direction = "down";
+  if (direction !== "up") {
+    direction = "down";
+  }
 });
 $arrowRightClick.addEventListener("click", () => {
-  direction = "right";
+  if (direction !== "left") {
+    direction = "right";
+  }
 });
 $arrowLeftClick.addEventListener("click", () => {
-  direction = "left";
+  if (direction !== "right") {
+    direction = "left";
+  }
 });
 
 document.addEventListener("keydown", (e) => {
