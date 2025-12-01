@@ -1,0 +1,22 @@
+{
+  "name": "fresh-snake",
+  "short_name": "snake",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "src/images/512snake.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "src/images/144snake.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
