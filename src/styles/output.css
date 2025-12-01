@@ -204,11 +204,17 @@
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
+  .left-5 {
+    left: calc(var(--spacing) * 5);
+  }
   .left-\[49\.1\%\] {
     left: 49.1%;
   }
   .left-\[50\%\] {
     left: 50%;
+  }
+  .z-30 {
+    z-index: 30;
   }
   .z-40 {
     z-index: 40;
@@ -469,6 +475,11 @@
   .md\:w-\[20\%\] {
     @media (width >= 48rem) {
       width: 20%;
+    }
+  }
+  .md\:w-\[30\%\] {
+    @media (width >= 48rem) {
+      width: 30%;
     }
   }
   .md\:w-\[50\%\] {

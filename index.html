@@ -16,7 +16,7 @@
     />
   </head>
   <body class="w-full h-[100vh] overflow-hidden bg-black text-white">
-    <section class="w-full h-full overflow-hidden">
+    <section class="w-full h-full overflow-hidden relative">
       <!-- sound effect game over -->
       <audio id="gameOver" src="src/sound effect/gameOver.mp3"></audio>
       <!-- end sound effect game over -->
@@ -38,7 +38,7 @@
         id="gameOverPage"
         class="w-full h-full bg-black absolute top-0 left-0 z-50 flex flex-col items-center pt-[10%] gap-y-20 translate-x-full duration-500"
       >
-        <div class="w-[90%] md:w-[20%] flex justify-between">
+        <div class="w-[90%] md:w-[30%] flex justify-between">
           <h4>Snake</h4>
           <h5>Score : <span id="gameOverScore">0</span></h5>
         </div>
@@ -60,16 +60,19 @@
       <!------------------------------- end page game over and play again ------------>
 
       <div class="w-full h-full overflow-hidden flex">
-        <h2
-          class="w-full text-[12px] md:text-2xl mt-5 md:mt-3 font-black text-white text-center flex justify-center items-center gap-2"
-        >
-          score : <span id="scoreWrapper" class="text-red-600">0</span>
-        </h2>
-        <h3
-          class="w-full text-[10px] md:text-xl font-black text-white text-center flex justify-center items-center gap-2 mt-5 md:mt-3"
-        >
-          High Score :<span id="highScore">0</span>
-        </h3>
+        <div class="w-full absolute left-0 flex z-30">
+          <h2
+            class="w-full text-[12px] md:text-2xl mt-5 md:mt-3 font-black text-white text-center flex justify-center items-center gap-2  "
+          >
+            score : <span id="scoreWrapper" class="text-red-600">0</span>
+          </h2>
+          <h3
+            class="w-full text-[10px] md:text-xl font-black text-white text-center flex justify-center items-center gap-2 mt-5 md:mt-3"
+          >
+            High Score :<span id="highScore">0</span>
+          </h3>
+        </div>
+
         <!-- table -->
         <div
           id="table"
