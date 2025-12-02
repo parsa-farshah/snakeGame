@@ -44,6 +44,34 @@ A modern, fast, customizable version of the classic Snake game — built with **
 
 👉 https://parsa-farshah.github.io/snakeGame/
 
+# 🖼️ Project Screenshots 🌟 Overview
+
+<img src="src/images/cover2.png" alt="Login Page Overview" width="100%" />
+<img src="src/images/cover1.png" alt="Login Page Overview" width="100%" />
+<img src="src/images/cover3.png" alt="Login Page Overview" width="100%" />
+
+## 💻 Desktop View
+
+<img src="src/images/1.png" alt="sign uu" width="100%" />
+
+<img src="src/images/2.png" alt="log in" width="100%" />
+
+<img src="src/images/3.png" alt="account" width="100%" />
+
+<img src="src/images/4.png" alt="account" width="100%" />
+
+### 📱 Tablet View
+
+<img src="src/images/5.png" alt="mobile sizes" width="60%" />
+<img src="src/images/6.png" alt="mobile sizes" width="60%" />
+<img src="src/images/7.png" alt="mobile sizes" width="60%" />
+
+### 📱 Mobile View
+
+<img src="src/images/8.png" alt="mobile sizes" width="60%" />
+<img src="src/images/9.png" alt="mobile sizes" width="60%" />
+<img src="src/images/10.png" alt="mobile sizes" width="60%" />
+
 ---
 
 ## 📅 Release Date
