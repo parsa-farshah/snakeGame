@@ -536,6 +536,11 @@
       width: 30%;
     }
   }
+  .md\:w-\[45px\] {
+    @media (width >= 48rem) {
+      width: 45px;
+    }
+  }
   .md\:w-\[50\%\] {
     @media (width >= 48rem) {
       width: 50%;
