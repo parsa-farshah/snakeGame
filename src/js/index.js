@@ -307,6 +307,8 @@ function checkCollision() {
     // bomb animation
     $bombAnimation.classList.remove("hidden");
     $bombDivWrapper.classList.add("hidden");
+    console.log($bombL);
+
     $bombAnimation.style.left = $bombL + "px";
     $bombAnimation.style.top = $bombT + "px";
     // animation for loose mar hidden and show

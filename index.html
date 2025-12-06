@@ -180,12 +180,7 @@
       </div>
       <div id="rabitDivWrapper" class="w-full h-full"></div>
       <div id="bombDivWrapper" class="w-full h-full"></div>
-      <div
-        id="bombAnimation"
-        class="w-full h-full absolute left-0 top-0 hidden"
-      >
-        <img class="w-10 h-10" src="src/images/bombAnimation.gif" alt="" />
-      </div>
+
       <!-- snake -->
       <div
         id="snake"
@@ -193,7 +188,7 @@
       ></div>
       <!------------------ keys ------------------->
       <div
-        class="w-[200px] h-[100px] absolute left-1/2 top-[85%] md:top-[90%] -translate-1/2 z-40 flex flex-col gap-y-1 justify-center items-center"
+        class="w-[240px] h-[100px] absolute left-1/2 top-[85%] md:top-[90%] -translate-1/2 z-40 flex flex-col gap-y-4 justify-center items-center"
       >
         <div id="arrowUpClick" class="w-full flex justify-center">
           <div
@@ -213,7 +208,7 @@
           </div>
         </div>
 
-        <div class="w-full flex justify-center items-center">
+        <div class="w-full flex justify-center items-center gap-3">
           <div
             id="arrowLeftClick"
             class="w-[45px] h-[45px] md:w-[45px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93] rounded-full cursor-pointer"
@@ -265,6 +260,9 @@
         </div>
       </div>
     </section>
+    <div id="bombAnimation" class="w-full h-full absolute left-0 top-0 hidden">
+      <img class="w-10 h-10" src="src/images/bombAnimation.gif" alt="" />
+    </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
   <script src="src/js/index.js"></script>
