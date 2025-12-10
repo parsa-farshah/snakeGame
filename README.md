@@ -74,7 +74,7 @@ A modern, fast, customizable version of the classic Snake game — built with **
 
 ## 📅 Release Date
 
-**02 December 2026**
+**02 December 2025**
 
 ---
 
