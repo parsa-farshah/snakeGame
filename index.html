@@ -16,7 +16,9 @@
     />
     <link rel="manifest" href="manifest.json" />
   </head>
-  <body class="w-full h-[100vh] overflow-hidden bg-black text-white">
+  <body
+    class="w-full h-[100vh] overflow-hidden text-black bg-[url(../images/bg3.jfif)]"
+  >
     <section
       class="w-full h-full overflow-hidden relative 2xl:container 2xl:mx-auto"
     >
@@ -39,7 +41,7 @@
       <!----------------------------------- page game over and play again ----------->
       <div
         id="gameOverPage"
-        class="w-full h-full bg-black absolute top-0 left-0 z-50 flex flex-col items-center pt-[10%] gap-y-20 translate-x-full duration-500"
+        class="w-full h-full bg-[url(../images/bg3.jfif)] absolute top-0 left-0 z-50 flex flex-col items-center pt-[10%] gap-y-20 translate-x-full duration-500"
       >
         <div class="w-[90%] md:w-[30%] flex justify-between">
           <h4>Snake</h4>
@@ -65,7 +67,7 @@
       <!------------------------------- my socials --------------------------->
       <div
         id="social"
-        class="w-full h-full bg-black flex justify-center absolute z-50 translate-x-full duration-500"
+        class="w-full h-full bg-[url(../images/bg3.jfif)] flex justify-center absolute z-50 translate-x-full duration-500"
       >
         <div
           id="closeBtn"
@@ -92,8 +94,10 @@
               alt=""
             />
           </figure>
-          <h2 class="text-xs text-center mt-3">Front-End Developer</h2>
-          <h2 class="text-[10px] text-center mt-3 text-[#c5c5c5ad]">
+          <h2 class="text-xs text-center mt-3 text-[#000000]">
+            Front-End Developer
+          </h2>
+          <h2 class="text-[10px] text-center mt-3 text-[#000000ad]">
             Parsa Dehghan Pour
           </h2>
           <!-- Social Links -->
@@ -135,13 +139,13 @@
         </div>
       </div>
       <!--------------------------------- end my socials ------------------------>
-
+      <!-- table -->
       <div class="w-full h-full overflow-hidden flex">
         <div
           class="w-full absolute left-0 flex justify-between items-center z-30 px-6"
         >
           <h2
-            class="text-[8px] md:text-2xl font-black text-white text-center flex items-center gap-2"
+            class="text-[8px] md:text-2xl font-black text-black text-center flex items-center gap-2"
           >
             score : <span id="scoreWrapper" class="text-red-600">0</span>
           </h2>
@@ -162,16 +166,16 @@
           </div>
 
           <h3
-            class="text-[6px] md:text-xl font-black text-white flex items-center gap-2"
+            class="text-[6px] md:text-xl font-black text-black flex items-center gap-2"
           >
             High Score :<span id="highScore">0</span>
           </h3>
         </div>
 
-        <!-- table -->
+        <!--------------------------------- table ---------------------------->
         <div
           id="table"
-          class="w-[90%] md:w-[70%] h-[510px] bg-black overflow-hidden absolute top-1/2 left-[50%] -translate-1/2 border border-white"
+          class="w-[90%] md:w-[70%] h-[510px] overflow-hidden absolute top-1/2 left-[50%] -translate-1/2 rounded-sm border-4 border-black backdrop-blur-[2px]"
         >
           <div
             class="grid grid-cols-17 lg:grid-cols-40 *:border *:border-[#ffffff17]"
@@ -180,7 +184,6 @@
       </div>
       <div id="rabitDivWrapper" class="w-full h-full"></div>
       <div id="bombDivWrapper" class="w-full h-full"></div>
-
       <!-- snake -->
       <div
         id="snake"
@@ -194,17 +197,7 @@
           <div
             class="w-[45px] h-[45px] md:w-[45px] md:h-[45px] border bg-[#ebebeb93] flex justify-center items-center rounded-full cursor-pointer"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="45"
-              height="45"
-              role="img"
-              aria-labelledby="titleUp"
-            >
-              <title id="titleUp">Arrow Up</title>
-              <polygon points="12,4 4,14 20,14" fill="black" />
-            </svg>
+            <img src="src/images/icons8-arrow-up-100.png" alt="" />
           </div>
         </div>
 
@@ -213,49 +206,19 @@
             id="arrowLeftClick"
             class="w-[45px] h-[45px] md:w-[45px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93] rounded-full cursor-pointer"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="45"
-              height="45"
-              role="img"
-              aria-labelledby="titleLeft"
-            >
-              <title id="titleLeft">Arrow Left</title>
-              <polygon points="4,12 14,4 14,20" fill="black" />
-            </svg>
+            <img src="src/images/arrowLeft.png" alt="" />
           </div>
           <div
             id="arrowDownClick"
             class="w-[45px] h-[45px] md:w-[45px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93] rounded-full cursor-pointer"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="45"
-              height="45"
-              role="img"
-              aria-labelledby="titleDown"
-            >
-              <title id="titleDown">Arrow Down</title>
-              <polygon points="4,10 20,10 12,20" fill="black" />
-            </svg>
+            <img src="src/images/arrowDown.png" alt="" />
           </div>
           <div
             id="arrowRightClick"
             class="w-[45px] h-[45px] md:w-[45px] md:h-[45px] border flex justify-center items-center bg-[#ebebeb93] rounded-full cursor-pointer"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="45"
-              height="45"
-              role="img"
-              aria-labelledby="titleRight"
-            >
-              <title id="titleRight">Arrow Right</title>
-              <polygon points="20,12 10,4 10,20" fill="black" />
-            </svg>
+            <img src="src/images/arrowRight.png" alt="" />
           </div>
         </div>
       </div>
