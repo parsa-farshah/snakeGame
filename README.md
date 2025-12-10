@@ -60,15 +60,15 @@ A modern, fast, customizable version of the classic Snake game — built with **
 
 ### 📱 Tablet View
 
+<img src="src/images/4.png" alt="mobile sizes" width="60%" />
 <img src="src/images/5.png" alt="mobile sizes" width="60%" />
 <img src="src/images/6.png" alt="mobile sizes" width="60%" />
-<img src="src/images/7.png" alt="mobile sizes" width="60%" />
 
 ### 📱 Mobile View
 
+<img src="src/images/7.png" alt="mobile sizes" width="60%" />
 <img src="src/images/8.png" alt="mobile sizes" width="60%" />
 <img src="src/images/9.png" alt="mobile sizes" width="60%" />
-<img src="src/images/10.png" alt="mobile sizes" width="60%" />
 
 ---
 
