@@ -58,8 +58,6 @@ A modern, fast, customizable version of the classic Snake game — built with **
 
 <img src="src/images/3.png" alt="account" width="100%" />
 
-<img src="src/images/4.png" alt="account" width="100%" />
-
 ### 📱 Tablet View
 
 <img src="src/images/5.png" alt="mobile sizes" width="60%" />
