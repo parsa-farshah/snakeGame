@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-black: #000;
     --color-white: #fff;
@@ -26,8 +27,6 @@
     --radius-4xl: 2rem;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --animate-bounce: bounce 1s infinite;
-    --blur-xs: 4px;
-    --blur-xl: 24px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -270,6 +269,9 @@
   .h-\[20px\] {
     height: 20px;
   }
+  .h-\[26px\] {
+    height: 26px;
+  }
   .h-\[45px\] {
     height: 45px;
   }
@@ -302,6 +304,9 @@
   }
   .w-\[20px\] {
     width: 20px;
+  }
+  .w-\[26px\] {
+    width: 26px;
   }
   .w-\[45px\] {
     width: 45px;
@@ -403,6 +408,10 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
   .border-4 {
     border-style: var(--tw-border-style);
     border-width: 4px;
@@ -413,20 +422,17 @@
   .border-black {
     border-color: var(--color-black);
   }
-  .border-white {
-    border-color: var(--color-white);
-  }
   .bg-\[\#4444449d\] {
     background-color: #4444449d;
   }
   .bg-\[\#ebebeb93\] {
     background-color: #ebebeb93;
   }
-  .bg-\[url\] {
-    background-color: url;
+  .bg-\[\#fff\] {
+    background-color: #fff;
   }
-  .bg-black {
-    background-color: var(--color-black);
+  .bg-\[\#ffffff38\] {
+    background-color: #ffffff38;
   }
   .bg-red-600 {
     background-color: var(--color-red-600);
@@ -434,35 +440,8 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .bg-\[url\(\)\] {
-    background-image: url();
-  }
-  .bg-\[url\(\.\.\/images\/\)\] {
-    background-image: url(../images/);
-  }
-  .bg-\[url\(\.\.\/images\/bg1\.jfif\)\] {
-    background-image: url(../images/bg1.jfif);
-  }
-  .bg-\[url\(\.\.\/images\/bg2\)\] {
-    background-image: url(../images/bg2);
-  }
-  .bg-\[url\(\.\.\/images\/bg2\.\)\] {
-    background-image: url(../images/bg2.);
-  }
-  .bg-\[url\(\.\.\/images\/bg2\.jf\)\] {
-    background-image: url(../images/bg2.jf);
-  }
-  .bg-\[url\(\.\.\/images\/bg2\.jfif\)\] {
-    background-image: url(../images/bg2.jfif);
-  }
   .bg-\[url\(\.\.\/images\/bg3\.jfif\)\] {
     background-image: url(../images/bg3.jfif);
-  }
-  .bg-cover {
-    background-size: cover;
-  }
-  .bg-repeat {
-    background-repeat: repeat;
   }
   .object-contain {
     object-fit: contain;
@@ -512,17 +491,11 @@
   .text-\[\#000000ad\] {
     color: #000000ad;
   }
-  .text-\[\#c5c5c5ad\] {
-    color: #c5c5c5ad;
-  }
   .text-black {
     color: var(--color-black);
   }
   .text-red-600 {
     color: var(--color-red-600);
-  }
-  .text-white {
-    color: var(--color-white);
   }
   .underline {
     text-decoration-line: underline;
@@ -535,23 +508,8 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
-  .backdrop-blur-\[1px\] {
-    --tw-backdrop-blur: blur(1px);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
   .backdrop-blur-\[2px\] {
     --tw-backdrop-blur: blur(2px);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
-  .backdrop-blur-xl {
-    --tw-backdrop-blur: blur(var(--blur-xl));
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
-  .backdrop-blur-xs {
-    --tw-backdrop-blur: blur(var(--blur-xs));
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }

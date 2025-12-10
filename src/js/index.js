@@ -75,12 +75,73 @@ function drawSnake() {
     div.style.width = "20px";
     div.style.height = "20px";
     ///////////////////////////// like a gap between sections
-    div.style.border = "1px solid black";
+    // div.style.border = "1px solid black";
     div.style.position = "absolute";
     div.style.left = seg.x * 20 + "px";
     div.style.top = seg.y * 20 + "px";
     /////////////////////////// head yellow and body lightyellow
-    div.style.backgroundColor = i === 0 ? "#80FF00" : "#138808";
+    // div.style.backgroundColor = i === 0 ? "#80FF00" : "#138808";
+    if (i === 0) {
+      div.innerHTML = `
+         <svg viewBox="0 0 22 22">
+      <defs>
+        <linearGradient id="realHeadRect" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#9cff4e"/>
+          <stop offset="100%" stop-color="#43a000"/>
+        </linearGradient>
+      </defs>
+
+      <!-- rectangular snake head -->
+      <rect x="1" y="1" width="20" height="20" rx="3"
+            fill="url(#realHeadRect)"
+            stroke="#1f4d00" stroke-width="1.4"/>
+
+      <!-- eyes -->
+      <rect x="5" y="6" width="4" height="5" rx="1" fill="#000"/>
+      <rect x="13" y="6" width="4" height="5" rx="1" fill="#000"/>
+
+      <!-- mouth line -->
+      <rect x="6" y="14" width="10" height="1.8" rx="1"
+            fill="#0b2a00" opacity="0.6"/>
+
+      <!-- tongue -->
+      <path d="M11 15 L11 21 L9 23 M11 21 L13 23"
+            stroke="#e60000" stroke-width="1.3" fill="none"
+            style="animation: tongue 0.35s infinite alternate;" />
+
+      <style>
+        @keyframes tongue {
+          from { transform: translateY(0); }
+          to   { transform: translateY(1.4px); }
+        }
+      </style>
+    </svg>`;
+    } else {
+      div.innerHTML = `
+        <svg viewBox="0 0 22 22">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1bbf4d"/>
+              <stop offset="100%" stop-color="#076b2d"/>
+            </linearGradient>
+          </defs>
+
+     
+          <rect x="1.5" y="1.5" width="19" height="19" rx="6" fill="url(#bodyGrad)"
+                stroke="#04441c" stroke-width="1"/>
+
+       
+          <g opacity="0.25">
+            <circle cx="7" cy="7" r="3" fill="#000"/>
+            <circle cx="15" cy="7" r="3" fill="#000"/>
+            <circle cx="7" cy="15" r="3" fill="#000"/>
+            <circle cx="15" cy="15" r="3" fill="#000"/>
+          </g>
+
+         
+          <ellipse cx="10" cy="6" rx="6" ry="2.2" fill="rgba(255,255,255,0.18)"/>
+        </svg>`;
+    }
     $snake.appendChild(div);
   });
 }
@@ -202,7 +263,9 @@ function rabitMaker() {
   let topRabbit = Math.floor(Math.random() * mdT) + Math.round(tableRect.top);
   $rabitWrapper.style.top = `${topRabbit}px`;
 
-  rabitDiv.innerHTML = `<div class=" tail-segment relative w-[20px] h-[20px] duration-500 bg-red-600">`;
+  rabitDiv.innerHTML = `<div class="relative w-[26px] h-[26px] rounded-full animate-pulse"
+style="background: radial-gradient(circle, #ff4d6d, #c1121f); box-shadow: 0 0 15px #ff4d6d, 0 0 25px #ff003c;">
+</div>`;
 
   $rabitWrapper.appendChild(rabitDiv);
   $rabitDivWrapper.appendChild($rabitWrapper);
@@ -502,15 +565,15 @@ $fast.addEventListener("click", () => {
 
 // ///////// for pwa
 
-if ("serviceWorker" in navigator) { 
+if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-     .register("serviceWorker.js") 
-    .then(reg => {
-       console.log("Service worker registred successfully", reg);
-     })
-     .catch(err => {
-       console.log("service worker not registred !!", err);
-     }); 
+    .register("serviceWorker.js")
+    .then((reg) => {
+      console.log("Service worker registred successfully", reg);
+    })
+    .catch((err) => {
+      console.log("service worker not registred !!", err);
+    });
 }
 
 ///////////////////////////////////////////////////// social btn
