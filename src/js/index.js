@@ -24,6 +24,11 @@ let $closeBtn = document.querySelector("#closeBtn");
 
 let cookieHigh = Cookies.get("HighScore");
 
+// debug for size small
+window.addEventListener("resize", () => {
+  tableRect = $table.getBoundingClientRect();
+});
+
 if (cookieHigh !== undefined) {
   $highScore.innerText = cookieHigh;
 }
@@ -147,6 +152,11 @@ function drawSnake() {
 }
 
 drawSnake();
+// debug for size small
+
+window.addEventListener("resize", () => {
+  tableRect = $table.getBoundingClientRect();
+});
 
 const $arrowUpClick = document.querySelector("#arrowUpClick");
 const $arrowLeftClick = document.querySelector("#arrowLeftClick");
@@ -205,6 +215,9 @@ function moveSnake() {
 
   // draw a new with x and
   drawSnake();
+  // debug for size small
+
+  snakeRect = $snake.getBoundingClientRect();
 
   headElement = $snake.children[0];
 
@@ -323,6 +336,23 @@ let $gameOverScore = document.querySelector("#gameOverScore");
 let flagScore = 0;
 
 function checkCollision() {
+// debug for size small
+  
+  let rabitWrapper = document.querySelector("#rabitWrapper");
+  if (rabitWrapper) {
+    $rabitL = rabitWrapper.getBoundingClientRect().left;
+    $rabitR = rabitWrapper.getBoundingClientRect().right;
+    $rabitT = rabitWrapper.getBoundingClientRect().top;
+    $rabitB = rabitWrapper.getBoundingClientRect().bottom;
+  }
+
+  let bombWrapper = document.querySelector("#bombWrapper");
+  if (bombWrapper) {
+    $bombL = bombWrapper.getBoundingClientRect().left;
+    $bombR = bombWrapper.getBoundingClientRect().right;
+    $bombT = bombWrapper.getBoundingClientRect().top;
+    $bombB = bombWrapper.getBoundingClientRect().bottom;
+  }
   /////////////////////////////////////////// eat rabbit
 
   if (
