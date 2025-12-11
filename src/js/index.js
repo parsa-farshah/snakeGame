@@ -65,9 +65,9 @@ if (speedSnake == "fast") {
 
 //////////////////////////////////////////////////////// snake three slice
 let snake = [
-  { x: 0, y: 0 },
-  { x: -1, y: 0 },
-  { x: -2, y: 0 },
+  { left: 60, top: 0 },
+  { left: 40, top: 0 },
+  { left: 20, top: 0 },
 ];
 
 //////////////////////////////////////////////////////// default direction
@@ -82,8 +82,8 @@ function drawSnake() {
     ///////////////////////////// like a gap between sections
     // div.style.border = "1px solid black";
     div.style.position = "absolute";
-    div.style.left = seg.x * 20 + "px";
-    div.style.top = seg.y * 20 + "px";
+    div.style.left = seg.left + "px";
+    div.style.top = seg.top + "px";
     /////////////////////////// head yellow and body lightyellow
     // div.style.backgroundColor = i === 0 ? "#80FF00" : "#138808";
     if (i === 0) {
@@ -203,10 +203,10 @@ let bodyObjB = [];
 
 function moveSnake() {
   let head = { ...snake[0] };
-  if (direction === "right") head.x += 1;
-  if (direction === "left") head.x -= 1;
-  if (direction === "up") head.y -= 1;
-  if (direction === "down") head.y += 1;
+  if (direction === "right") head.left += 20;
+  if (direction === "left") head.left -= 20;
+  if (direction === "up") head.top -= 20;
+  if (direction === "down") head.top += 20;
 
   //  head first in array
   snake.unshift(head);
@@ -390,8 +390,6 @@ function checkCollision() {
     headElementRect.top < $bombB &&
     headElementRect.bottom > $bombT
   ) {
-    alert("خوردی به بمب");
-
     // stop moving
     clearInterval(interval);
     $bombSoundEffect.play();
@@ -402,6 +400,7 @@ function checkCollision() {
     // bomb animation
     $bombAnimation.classList.remove("hidden");
     $bombDivWrapper.classList.add("hidden");
+    console.log($bombL);
 
     $bombAnimation.style.left = $bombL + "px";
     $bombAnimation.style.top = $bombT + "px";
@@ -450,7 +449,6 @@ function checkCollision() {
     headElementRect.top <= tableRect.top ||
     headElementRect.bottom >= tableRect.bottom
   ) {
-    alert("خوردی به دیوار");
     // stop moving
     clearInterval(interval);
     // animation for loose mar hidden and show
@@ -500,7 +498,6 @@ function checkCollision() {
       headElementRect.top < bodyObjB[i] &&
       headElementRect.bottom > bodyObjT[i]
     ) {
-      alert("به خوت خوردی");
       clearInterval(interval);
       // animation for loose mar hidden and show
       $gameOver.play();
