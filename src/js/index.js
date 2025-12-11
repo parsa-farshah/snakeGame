@@ -336,8 +336,8 @@ let $gameOverScore = document.querySelector("#gameOverScore");
 let flagScore = 0;
 
 function checkCollision() {
-// debug for size small
-  
+  // debug for size small
+
   let rabitWrapper = document.querySelector("#rabitWrapper");
   if (rabitWrapper) {
     $rabitL = rabitWrapper.getBoundingClientRect().left;
@@ -390,6 +390,8 @@ function checkCollision() {
     headElementRect.top < $bombB &&
     headElementRect.bottom > $bombT
   ) {
+    alert("خوردی به بمب");
+
     // stop moving
     clearInterval(interval);
     $bombSoundEffect.play();
@@ -400,7 +402,6 @@ function checkCollision() {
     // bomb animation
     $bombAnimation.classList.remove("hidden");
     $bombDivWrapper.classList.add("hidden");
-    console.log($bombL);
 
     $bombAnimation.style.left = $bombL + "px";
     $bombAnimation.style.top = $bombT + "px";
@@ -449,6 +450,7 @@ function checkCollision() {
     headElementRect.top <= tableRect.top ||
     headElementRect.bottom >= tableRect.bottom
   ) {
+    alert("خوردی به دیوار");
     // stop moving
     clearInterval(interval);
     // animation for loose mar hidden and show
@@ -498,6 +500,7 @@ function checkCollision() {
       headElementRect.top < bodyObjB[i] &&
       headElementRect.bottom > bodyObjT[i]
     ) {
+      alert("به خوت خوردی");
       clearInterval(interval);
       // animation for loose mar hidden and show
       $gameOver.play();
