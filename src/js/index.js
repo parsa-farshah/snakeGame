@@ -364,12 +364,6 @@ function checkCollision() {
     $collectRing.play();
     $rabitDivWrapper.innerHTML = "";
     $bombDivWrapper.innerHTML = "";
-    if (flagScore >= 10) {
-      bombMaker();
-    }
-    if (flagScore >= 20) {
-      bombMaker();
-    }
     bombMaker();
     rabitMaker();
     flagScore++;
@@ -400,7 +394,6 @@ function checkCollision() {
     // bomb animation
     $bombAnimation.classList.remove("hidden");
     $bombDivWrapper.classList.add("hidden");
-    console.log($bombL);
 
     $bombAnimation.style.left = $bombL + "px";
     $bombAnimation.style.top = $bombT + "px";
